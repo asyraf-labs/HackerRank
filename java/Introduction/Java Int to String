@@ -1,0 +1,84 @@
+You are given an integer , you have to convert it into a string.
+
+Please complete the partially completed code in the editor. If your code successfully converts  into a string  the code will print "Good job". Otherwise it will print "Wrong answer".
+
+ can range between  to  inclusive.
+
+Sample Input 0
+
+100
+Sample Output 0
+
+Good job
+
+============================================================
+
+import java.util.*;
+import java.security.*;
+public class Solution {
+ public static void main(String[] args) {
+
+  DoNotTerminate.forbidExit();
+
+  try {
+   Scanner in = new Scanner(System.in);
+   int n = in .nextInt();
+   in.close();
+   //String s=???; Complete this line below
+
+   //Write your code here
+   String s = ""+n;
+
+   
+   if (n == Integer.parseInt(s)) {
+    System.out.println("Good job");
+   } else {
+    System.out.println("Wrong answer.");
+   }
+  } catch (DoNotTerminate.ExitTrappedException e) {
+   System.out.println("Unsuccessful Termination!!");
+  }
+ }
+}
+
+//The following class will prevent you from terminating the code using exit(0)!
+class DoNotTerminate {
+
+ public static class ExitTrappedException extends SecurityException {
+
+  private static final long serialVersionUID = 1;
+ }
+
+ public static void forbidExit() {
+  final SecurityManager securityManager = new SecurityManager() {
+   @Override
+   public void checkPermission(Permission permission) {
+    if (permission.getName().contains("exitVM")) {
+     throw new ExitTrappedException();
+    }
+   }
+  };
+  System.setSecurityManager(securityManager);
+ }
+}
+==============================================================================
+
+Here are 3 ways to convert an int to a String
+
+String s = String.valueOf(n);
+
+String s = Integer.toString(n);
+
+String s = "" + n;
+
+=================================================================
+
+I understand what you did for the first and second method. But can you please explain what does 3rd method do. In other words, how does "" convert integer into string? 
+
+We know that "" is of type String. It is known as the empty string. It is a String with no characters in it. The + operator, when used on the right side of a String, simply connects stuff to the right of the original String. If what it's connecting is not yet a String, it automatically converts it into one, which is what we want for this exercise.
+
+"" + "Hello" + "there."
+becomes the String "Hello there." and
+
+"" + n
+becomes the String n, where n was automatically converted into a String for us.
