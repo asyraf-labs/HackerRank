@@ -27,7 +27,7 @@ Sample Output 1
 
 if __name__== '__main__':
   x = int(input())
-  y = int(input())
+  y = int(input())     or   x, y, z, n = (int(input()) for _ in range(4))
   z = int(input())
   n = int(input())
   
