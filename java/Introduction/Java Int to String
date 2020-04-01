@@ -82,3 +82,5 @@ becomes the String "Hello there." and
 
 "" + n
 becomes the String n, where n was automatically converted into a String for us.
+
+#https://stackoverflow.com/questions/5585779/how-do-i-convert-a-string-to-an-int-in-java
