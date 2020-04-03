@@ -1,0 +1,51 @@
+A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward.(Wikipedia)
+Given a string , print Yes if it is a palindrome, print No otherwise.
+
+Constraints
+
+ will consist at most  lower case english letters.
+Sample Input
+
+madam
+Sample Output
+
+Yes
+
+=======================================
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        /* Enter your code here. Print output to STDOUT. */
+        System.out.println( A.equals( new StringBuilder(A).reverse().toString()) 
+    ? "Yes" : "No" );
+        
+    }
+}
+=============================================
+ The reverse() method returns a StringBuilder object, not a String. Since the equals() method expects an Object, the compiler won't complain if you pass a StringBuilder object, but then you're comparing a String object to a StringBuilder object, so they'll never be equal. To illustrate, try using equalsIgnoreCase() which expects a String, so the compiler will complain if you don't add the toString() after reverse()...
+
+    String A="Racecar";
+    System.out.println( A.equalsIgnoreCase(new StringBuilder(A).reverse().toString() ) 
+            ? "Yes" : "No" );
+Output = Yes
+
+    String A="Racecar";
+    System.out.println( A.equalsIgnoreCase(new StringBuilder(A).reverse() ) 
+            ? "Yes" : "No" );
+Output = Compile error!
+
+===================================================
+
+//or
+
+int count = 0;
+for(int i=0; i<A.length()/2;i++)
+    if( A.charAt(i) == A.charAt(A.length()-i-1)) count++;
+System.out.println( (count == A.length()/2) ? "Yes" : "No") ;
